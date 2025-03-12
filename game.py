@@ -1,7 +1,23 @@
-from ast import main
 import pygame
 import sys
 import config
+
+
+
+
+
+    
+def draw_text(screen, text, x, y, font_size, color, font_name=None, italic=False, bold=False):
+    if font_name:
+        font = pygame.font.Font(font_name, font_size)
+    else:
+        font = pygame.font.Font(None, font_size)
+    font.set_bold(bold)
+    font.set_italic(italic)
+
+    text_surface = font.render(text, True, color)
+    screen.blit(text_surface, (x,y))
+
 
 def init_game ():
     pygame.init()
@@ -18,20 +34,6 @@ def handle_events ():
             if event.key == pygame.K_ESCAPE:
                 return False
     return True
-
-def show_name(first_name, last_name, middle_name=None):
-  
-    if middle_name:
-        output = f"{first_name} {middle_name} {last_name}"
-    else:
-        output = f"{first_name} {last_name}"
-    return output
-
-
-print(show_name("John", "Jenkins")) 
-print(show_name("John", "Jenkins", "Michael")) 
-    
-def draw_text(screen, text, font_size, font_name, font_color, position,          anti_aliased =True, italic=False, bold=False):
 
 def main():
     screen = init_game()
