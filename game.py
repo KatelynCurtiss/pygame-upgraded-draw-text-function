@@ -21,6 +21,7 @@ def draw_text(screen, text, x, y, font_size, color, font_name=None, italic=False
 
 def init_game ():
     pygame.init()
+    pygame.font.init()
     screen = pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
         
     pygame.display.set_caption(config.TITLE)
@@ -38,39 +39,36 @@ def handle_events ():
 def main():
     screen = init_game()
     clock = pygame.time.Clock()
-    
-    
-    font_name = "FreeMono.ttf"
-    font_color1 = config.RED  
-    font_color2 = config.PURPLE
-    font_color3 = config.ORANGE
-    font_size_normal = 36
-    font_size_bold_italic = 30
-    font_size_custom = 48
-
-  
-    custom_font_name = 'FiraCode-Regular.ttf'
-
-    
-    text_position_1 = [50, 50]
-    text_position_2 = [225, 135]
-    text_position_3 = [220, 370]
 
     running = True
-    while running:
-
-
-
-        running = True
-    while running:
+    while running: 
         running = handle_events()
-        screen.fill(config.WHITE) 
+    
+    screen.fill(config.WHITE)
+    text1 = "Katelyn Curtiss"
+    font_size1 = 48
+    color1 = config.BLACK
+    x1, y1 = (200,250)
+
+    text2 = "AM Web"
+    font_size2 = 48
+    color2 = config.PURPLE
+    x2, y2 = (200,320)
+
+    text3 = "Alba Public School"
+    font_size3 = 48
+    color3 = config.RED
+    x3, y3 = (475,355)
+
+    draw_text(screen, text1, x1, y1, font_size1, color1)
+    draw_text(screen, text2, x2, y2, font_size2, color2)
+    draw_text(screen, text3, x3, y3, font_size3, color3)
         
 
 
-        pygame.display.flip()
+    pygame.display.flip()
 
-        clock.tick(config.FPS) 
+    clock.tick(config.FPS) 
 
     pygame.quit()
 
